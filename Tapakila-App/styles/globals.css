@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './tailwind.css';
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+body {
+  font-family: Poppins, sans-serif;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+}
+
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 20s linear infinite;
+  display: flex;
+  width: 200%;
+}
+
+@layer utilities {
+  .hover-neon {
+    transition: all 0.3s ease;
+  }
+
+  .hover-neon:hover {
+    color: #ffba08;
+    text-shadow: 0 0 5px #ffba08, 0 0 10px #ffba08, 0 0 20px #ffba08, 0 0 40px #ffba08;
+  }
+
+  .underline-uncurved {
+    position: relative;
+  }
+
+  .underline-uncurved::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #ffba08;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  .underline-uncurved:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .glowing-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #0077ff;
+    color: #e5e5e5;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px #0077ff, 0 0 10px #0077ff, 0 0 20px #0077ff;
+  }
+
+  .glowing-button:hover {
+    background-color: #ffba08;
+    color: #14213d;
+    box-shadow: 0 0 10px #ffba08, 0 0 20px #ffba08, 0 0 40px #ffba08;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.shadow-neon-orMetallique {
+  box-shadow: 0 0 7px #ffd700, 0 0 7px #ffd700, 0 0 7px #ffd700;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+}
